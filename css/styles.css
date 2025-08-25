@@ -1,0 +1,577 @@
+/*
+  Gus By Heart – Artistic Minimalism
+  --------------------------------------------------
+  Inspired by: Art galleries, Dieter Rams, David Bowie,
+  Thom Yorke, Bon Iver, 1960s modernism meets 1990s refinement
+  
+  Philosophy: Sophisticated minimalism with artistic edge
+  Typography: Precise, gallery-worthy
+  Color: Muted, thoughtful, with moments of intensity
+  Layout: Breathing space, perfect proportions
+*/
+
+:root {
+  /* Sophisticated Color Palette */
+  --color-primary: #1a1a1a;        /* Rich black, gallery walls */
+  --color-secondary: #f8f7f4;      /* Warm white, art paper */
+  --color-accent-red: #8b2635;     /* Deep burgundy, artistic intensity */
+  --color-accent-muted: #a8a5a0;   /* Warm grey, understated elegance */
+  --color-text-light: #6b6b6b;     /* Soft grey for secondary text */
+  --color-border: #e8e6e1;         /* Barely-there lines */
+  --color-link: #4a4a4a;           /* Confident grey */
+  --color-link-hover: #8b2635;     /* Red accent on interaction */
+
+  /* Typography System */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Crimson Text', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  
+  /* Precise Spacing (Golden Ratio inspired) */
+  --space-xs: 0.618rem;
+  --space-sm: 1rem;
+  --space-md: 1.618rem;
+  --space-lg: 2.618rem;
+  --space-xl: 4.236rem;
+  
+  /* Refined Details */
+  --border-width: 1px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Foundation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout Container - Gallery proportions */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+header, nav, main, footer {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Header - Museum nameplate aesthetic */
+.header {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  border-bottom: var(--border-width) solid var(--color-border);
+  margin-bottom: var(--space-lg);
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logo-text font {
+  color: var(--color-accent-red) !important;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Email Signup - Refined form */
+.signup-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.signup-form input[type="email"] {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: var(--space-xs) var(--space-sm);
+  border: var(--border-width) solid var(--color-accent-muted);
+  background: transparent;
+  color: var(--color-primary);
+  min-width: 200px;
+  transition: var(--transition);
+}
+
+.signup-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--color-accent-red);
+  background: rgba(139, 38, 53, 0.03);
+}
+
+.signup-form input[type="email"]::placeholder {
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.signup-form button {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: var(--space-xs) var(--space-md);
+  border: var(--border-width) solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+}
+
+.signup-form button:hover {
+  background: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+  transform: translateY(-1px);
+}
+
+/* Thank You Message */
+.thank-you-message {
+  text-align: center;
+  margin-top: var(--space-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thank-you-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thank-you-message p {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.1rem;
+  /* color: var(--color-accent-red); */
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: var(--space-sm) 0;
+}
+
+/* Typography - Gallery precision */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-md);
+  /* border-bottom: var(--border-width) solid var(--color-border); */
+  padding-bottom: var(--space-xs);
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+/* Links - Subtle but confident */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover, a:focus {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-red);
+  text-underline-offset: 3px;
+}
+
+/* Sections - Gallery rooms */
+section {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg) 0;
+}
+
+section:not(:last-child) {
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+/* About Section - Artist statement */
+.bio {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-primary);
+  margin: var(--space-md) 0;
+  max-width: 520px;
+}
+
+.artist-photo {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-lg) 0;
+}
+
+.artist-img {
+  width: 200px;
+  height: auto;
+  filter: grayscale(15%) contrast(1.1) brightness(0.95);
+  border: var(--border-width) solid var(--color-accent-muted);
+  transition: var(--transition);
+}
+
+.artist-img:hover {
+  filter: grayscale(0%) contrast(1.05) brightness(1);
+  transform: scale(1.02);
+}
+
+.contact, .social-icons {
+  margin: var(--space-md) 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.contact strong {
+  color: var(--color-text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.social-icons strong {
+  color: var(--color-text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: var(--space-xs);
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--color-text-light);
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  color: var(--color-accent-red);
+  transform: translateY(-2px);
+}
+
+/* Featured Release - Gallery spotlight */
+.featured {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.featured h2 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  border: none;
+  margin-bottom: var(--space-lg);
+}
+
+.featured-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: var(--space-lg) auto;
+  border: var(--border-width) solid var(--color-accent-muted);
+  transition: var(--transition);
+  filter: brightness(0.98) contrast(1.05);
+}
+
+.featured-image:hover {
+  transform: scale(1.03);
+  filter: brightness(1) contrast(1.1);
+  box-shadow: 0 8px 32px rgba(139, 38, 53, 0.12);
+}
+
+.featured-playback {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-top: var(--space-md);
+}
+
+/* Catalog - Collection display */
+.release-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.release {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-md);
+  align-items: start;
+  padding: var(--space-md) 0;
+}
+
+.release-cover {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: var(--border-width) solid var(--color-accent-muted);
+  transition: var(--transition);
+  filter: brightness(0.96) contrast(1.08);
+}
+
+.release-cover:hover {
+  transform: translateY(-3px);
+  filter: brightness(1) contrast(1.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.release-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+}
+
+.release-type {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.release-formats {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.release-formats strong {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.release-formats a {
+  color: var(--color-link);
+  margin-left: var(--space-xs);
+  padding: 2px 6px;
+  border: var(--border-width) solid var(--color-border);
+  background: rgba(168, 165, 160, 0.1);
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.release-formats a:hover {
+  background: var(--color-accent-red);
+  color: var(--color-secondary);
+  border-color: var(--color-accent-red);
+  text-decoration: none;
+}
+
+/* Lyrics - Poetry section */
+.track {
+  margin-bottom: var(--space-md);
+  /* border-bottom: var(--border-width) solid var(--color-border); */
+  padding-bottom: var(--space-sm);
+}
+
+.track.release-divider {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 2px solid var(--color-accent-muted);
+}
+
+.track summary {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-primary);
+  padding: var(--space-sm) 0;
+  transition: var(--transition);
+  position: relative;
+}
+
+.track summary::after {
+  content: '→';
+  position: absolute;
+  right: 0;
+  transition: var(--transition);
+  font-family: var(--font-mono);
+}
+
+.track[open] summary::after {
+  content: '↓';
+  color: var(--color-accent-red);
+}
+
+.track summary:hover {
+  color: var(--color-accent-red);
+  padding-left: var(--space-xs);
+}
+
+.track summary::-webkit-details-marker {
+  display: none;
+}
+
+.lyrics-text {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--color-primary);
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  background: rgba(168, 165, 160, 0.04);
+  border-left: 3px solid var(--color-accent-red);
+  white-space: pre-line;
+  font-style: italic;
+}
+
+/* Footer - Gallery closing */
+.footer {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  border-top: var(--border-width) solid var(--color-border);
+  margin-top: var(--space-xl);
+}
+
+.footer small {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  :root {
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem;
+  }
+  
+  header, nav, main, footer {
+    padding: 0 var(--space-sm);
+  }
+  
+  .logo-text {
+    font-size: clamp(2.6rem, 12vw, 3.4rem);
+    letter-spacing: -0.02em;
+  }
+  
+  .logo-text font {
+    letter-spacing: -0.01em;
+  }
+  
+  .signup-form {
+    flex-direction: row;
+    gap: var(--space-xs);
+  }
+  
+  .signup-form input[type="email"] {
+    min-width: 160px;
+    flex: 1;
+  }
+  
+  .signup-form button {
+    flex-shrink: 0;
+    padding: var(--space-xs) var(--space-sm);
+  }
+  
+  .release {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+  
+  .release-cover {
+    margin: 0 auto;
+  }
+  
+  .social-icons {
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+}
+
+/* Artistic touches - subtle animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-accent-red);
+  color: var(--color-secondary);
+}
+
+::-moz-selection {
+  background: var(--color-accent-red);
+  color: var(--color-secondary);
+}
