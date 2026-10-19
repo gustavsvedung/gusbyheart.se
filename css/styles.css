@@ -255,6 +255,14 @@ section:not(:last-child) {
   max-width: 520px;
 }
 
+.bio p {
+  margin: 0;
+}
+
+.bio p + p {
+  margin-top: var(--space-sm);
+}
+
 .artist-photo {
   display: flex;
   justify-content: center;
