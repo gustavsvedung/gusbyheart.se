@@ -153,6 +153,14 @@ header, nav, main, footer {
   transform: translateY(-1px);
 }
 
+.signup-note {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-top: var(--space-xs);
+  text-align: center;
+}
+
 /* Thank You Message */
 .thank-you-message {
   text-align: center;
